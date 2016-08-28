@@ -1,0 +1,14 @@
+{% extends "home/header.html" %}
+{% block content %}
+
+    <a href="{% url 'addFunction' %}">Add a new function</a> 
+
+    <ul>
+        {% for language in object_list %}
+            <li>
+                <a href="{% url 'listFunction' language.id %}"> {{ language.name }} </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "home/header.html" %}
+
+{% block content %}
+
+<h3>Add function</h3>
+
+<form action="{% url 'createFunction' %}" method="post">
+{% csrf_token %}
+
+    {{ form.language_id.label_tag }}
+    {% for language in languages %}
+	    <p>
+	        <input id="language.{{ language.id }}" type="radio" name="language_id" value="{{ language.id }}" required>
+	        <label for="language.{{ language.id }}">
+	            {{ language.name }} 
+	        </label>        
+	    </p>
+    {% endfor %}
+
+    <p>
+	    {{ form.function_title.label_tag }}
+	    {{ form.function_title }}
+	</p>
+
+    <p>
+		{{ form.function_body.label_tag }}
+    	{{ form.function_body }}
+    </p>
+   
+    <input type="submit" value="submit">
+</form>
+
+{% endblock %}

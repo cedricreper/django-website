@@ -1,0 +1,12 @@
+{% extends "home/header.html" %}
+{% block content %}
+
+    <p>Function: <b> {{ function.title }} </b> with <b> {{ function.language.name }} </b></p>
+    
+    <textarea rows="10" cols="40" readonly>
+        {{ function.body }}
+    </textarea>
+
+    <p><small> Date created: {{ function.date }} </small></p>
+
+{% endblock  %}
